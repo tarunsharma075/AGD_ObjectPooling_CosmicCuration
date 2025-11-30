@@ -6,10 +6,13 @@ namespace CosmicCuration.Player
     public class PlayerService
     {
         private PlayerController playerController;
+        private Bulletpool bulletpool;
 
         public PlayerService(PlayerView playerViewPrefab, PlayerScriptableObject playerScriptableObject, BulletView bulletPrefab, BulletScriptableObject bulletScriptableObject)
         {
-            playerController = new PlayerController(playerViewPrefab, playerScriptableObject, bulletPrefab, bulletScriptableObject);
+           
+            bulletpool = new Bulletpool(bulletPrefab,bulletScriptableObject);
+            playerController = new PlayerController(playerViewPrefab, playerScriptableObject, bulletpool);
         }
 
         public PlayerController GetPlayerController() => playerController;
