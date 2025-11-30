@@ -146,6 +146,9 @@ namespace CosmicCuration.Player
             Firing,
             NotFiring
         }
+
+
+        
     }
 
     public enum ShieldState
@@ -153,4 +156,6 @@ namespace CosmicCuration.Player
         Activated,
         Deactivated
     }
+
+   
 }
