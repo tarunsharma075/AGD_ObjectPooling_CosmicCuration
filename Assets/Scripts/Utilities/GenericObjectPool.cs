@@ -26,13 +26,13 @@ namespace CosmicCuration.Utilities
 protected T CreatePooledItem()
         {
             PooledItems<T> item = new PooledItems<T>();
-            item.Item = CreatePooledItemk();
+            item.Item = CreatePooledItem();
             item.isUsed = true;
             pooledItem.Add(item);
             return item.Item;
         }
 
-        protected virtual  T CreatePooledItemk()
+        protected virtual  void  CreateItem()
         {
             throw new NotImplementedException();
         }
@@ -41,6 +41,14 @@ protected T CreatePooledItem()
         {
             public T Item;
             public  bool isUsed;
+        }
+
+
+    public void ReturnThePooledItem(T item)
+     {
+        PooledItems<T> pooledItems = pooledItem.Find(i => i.Item == item);
+        pooledItems.isUsed = false;
+
         }
         
     }

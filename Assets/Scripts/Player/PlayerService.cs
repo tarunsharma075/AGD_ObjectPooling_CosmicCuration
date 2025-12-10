@@ -5,12 +5,12 @@ namespace CosmicCuration.Player
 {
     public class PlayerService
     {
-        private BulletPool bulletPool;
+        private Bulletpool bulletPool;
         private PlayerController playerController;
 
         public PlayerService(PlayerView playerViewPrefab, PlayerScriptableObject playerScriptableObject, BulletView bulletPrefab, BulletScriptableObject bulletScriptableObject)
         {
-            bulletPool = new BulletPool(bulletPrefab, bulletScriptableObject);
+            bulletPool = new Bulletpool(bulletPrefab, bulletScriptableObject);
             playerController = new PlayerController(playerViewPrefab, playerScriptableObject, bulletPool);
         }
 
@@ -18,7 +18,7 @@ namespace CosmicCuration.Player
 
         public Vector3 GetPlayerPosition() => playerController.GetPlayerPosition();
         
-        public void ReturnBulletToPool(BulletController bulletToReturn) => bulletPool.ReturnBullet(bulletToReturn);
+        public void ReturnBulletToPool(BulletController bulletToReturn) => bulletPool.ReturnThePooledItem(bulletToReturn);
         
     } 
 }
